@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.UserMapper">
+	<select id="getNameById" resultType="string" parameterType="int">
+		SELECT name
+		FROM user
+		WHERE id=#{id}  
+	</select>  
+	  
+	<select id="getIdByName" resultType="int" parameterType="String">
+		SELECT id
+		FROM user
+		WHERE name=#{name}  
+	</select> 
+	
+	<select id="getUser" resultType="model.User" parameterType="int">
+		SELECT *
+		FROM user
+		WHERE id=#{id}  
+	</select> 
+	  
+	 <resultMap id="userMap" type="model.User">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="password" property="password" />
+        <result column="sex" property="sex" />
+        <result column="phone" property="phone" />
+    </resultMap>
+    
+      <!-- 返回一个list的写法 -->
+    <select id="queryAllUser"  resultMap="userMap" >
+        select * from user
+    </select>
+    
+	<insert id="insertUser" parameterType="model.User">
+		  insert into user(name,password,sex,phone) values(#{name},#{password},#{sex},#{phone})
+	</insert>    
+	
+	<!-- 更新记录 -->  
+   <update id="updateUser" parameterType="model.User">  
+        update user set name = #{name},password = #{password},sex = #{sex},phone = #{phone}    where id = #{id}  
+    </update>   
+  
+    <!-- 删除一条记录 -->  
+    <delete id="deleteUser" parameterType="int">  
+        delete from user where id = #{id}  
+    </delete>  
+</mapper>

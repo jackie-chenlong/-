@@ -1,0 +1,27 @@
+html,body{
+	font-size: 10px;
+	font-family: '微软雅黑';
+    padding-bottom: 29px;
+    background: #f6f6f6;
+}
+#main {
+    padding-top: 10%;
+}
+#selectTime {
+	position: relative;
+    margin-top: 10px;
+    padding-top: 9px;
+    height: 48px;
+    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+}
+#timeLabel{
+	font-size: 17px;
+    margin-left: 15px;
+}
+.dateTime{
+    margin-left: 25%;
+    width: 49%;
+    height: 30px;
+	
+}

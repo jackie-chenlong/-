@@ -1,0 +1,15 @@
+html,body{
+	padding-bottom: 30px;
+	overflow-x: hidden;
+	background: #f6f6f6;
+}
+#registerForm{
+	padding-left: 4px;
+    padding-right: 4px;
+}
+#header{
+	padding-left: 4%;
+}
+.sexRadio{
+    margin-top: 7px;
+}

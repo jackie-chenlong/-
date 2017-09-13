@@ -1,0 +1,55 @@
+header{
+	position: fixed;
+    left: 0px;
+    right: 0px;
+    z-index: 9999;
+    height:6%;
+    color: white;
+    font-size: 1.4rem;
+    background-color: #423737;
+}
+.hd{
+	padding-left: 4px;
+    padding-top: 6px;
+}
+.hd_right {
+    float: right;
+    padding-right: 6px;
+    padding-top: 6px;
+    font-size: 1.3rem;
+}
+#signInForm,#registerForm{
+    padding-top: 10%;
+}
+.navbar-fixed-bottom {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    margin-bottom: 0;
+    bottom: 0;
+}
+.navbar {
+    overflow: visible;
+    display: block;
+}
+#bottom {
+    height: 7%;
+    background-color: #FDFDFD;
+    color: #848080;
+    font-size: 1.4rem;
+}
+#homePage,
+#order,
+#search
+{
+    width: 32%;
+    display: inline-block;
+    text-align: center;
+    line-height: 1em;
+    padding-top: 3px;
+}
+#bottom img {
+    width: 2rem;
+}
+

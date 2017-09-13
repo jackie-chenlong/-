@@ -1,0 +1,76 @@
+html,body{
+	position: relative;
+    /*height: 100%;*/
+	font-size: 10px;
+	font-family: '微软雅黑';
+    padding-bottom: 29px;
+    background: #f6f6f6;
+}
+.swiper-container {
+	padding-top: 7%;
+    width: 100%;
+    height: 30%;
+        
+}
+.swiper-wrapper{
+	height: 186px;
+}
+.swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+}
+aside {
+    height: 30px;
+    background-color: #8e8787;
+}
+.tab{
+	display: inline-block;
+    width: 30%;
+    padding-top: 4px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #4e7fbd;
+    border-top: 3px solid #4e7fbd;
+    background-color: white;
+}
+#firstItem{
+	
+}
+.item{
+    padding: 22px 10px;
+    border-bottom: 1px solid #dcdada;
+}
+.item-img{
+	width:70px;
+	height: 70px;
+	vertical-align: top;
+}
+.item-content{
+	display: inline-block;
+	padding-left: 4px;
+	width: 70%;
+}
+.item-content-hd{
+	font-size: 1.7rem;
+}
+.shopAddress , .orderNum{
+    font-size: 1.2rem;
+}
+.imgIcon {
+    color: #c91616;
+}

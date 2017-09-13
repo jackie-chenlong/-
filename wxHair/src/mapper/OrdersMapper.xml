@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.OrdersMapper"> 
+	<select id="getOrders" resultType="model.Orders" parameterType="int">
+		SELECT *
+		FROM orders
+		WHERE id=#{id}  
+	</select>   
+	
+	 <resultMap id="ordersMap" type="model.Orders">
+        <id column="id" property="id" />
+        <result column="user_id" property="user_id" />
+        <result column="shop_id" property="shop_id" />
+        <result column="service" property="service" />
+        <result column="stylist" property="stylist" />
+        <result column="price" property="price" />    
+        <result column="needTime" property="needTime" />
+        <result column="orderTime" property="time" />
+        <result column="stat" property="stat" />
+    </resultMap>
+    
+      <!-- 返回一个list的写法 -->
+    <select id="queryAllOrders"  resultMap="ordersMap" >
+        select * from orders
+    </select>
+    
+    <select id="getOrdersList"  parameterType="int" resultMap="ordersMap" >
+		SELECT *
+		FROM orders
+		WHERE user_id=#{user_id} and stat="已提交" order by orderTime desc 
+	</select>   
+	
+	<select id="getSureOrdersList"  resultMap="ordersMap" >
+		SELECT *
+		FROM orders
+		WHERE user_id=#{user_id}  and stat=#{stat} order by orderTime desc 
+	</select>   
+	
+	<select id="getOrdersListByShopId" parameterType="int" resultMap="ordersMap" >
+		SELECT *
+		FROM orders
+		WHERE shop_id=#{shop_id}  order by orderTime desc
+	</select>  
+	
+	<select id="getOrdersListByName"  resultMap="ordersMap" >
+		SELECT *
+		FROM orders
+		WHERE shop_id=#{shop_id} and orderTime>#{time} order by orderTime
+	</select> 
+	 
+	<resultMap id="serviceMap" type="model.ServiceNum">
+        <result column="service" property="service" />
+        <result column="orderNum" property="orderNum" />
+    </resultMap>
+    
+	<select id="getServiceNum"  resultMap="serviceMap" >
+        select service,count(*) as orderNum from orders group by service 
+    </select>
+    
+    <select id="getWaitNum"  resultType="int" >
+        select count(*) 
+         from orders 
+         where shop_id=#{shop_id} and orderTime between #{nowTime} and #{orderTime}
+    </select>
+    
+	<insert id="insertOrders" parameterType="model.Orders">
+		  insert into orders(user_id,shop_id,service,stylist,price,needTime,orderTime,stat) 
+		  values(#{user_id},#{shop_id},#{service},#{stylist},#{price},#{needTime},#{time},#{stat})
+	</insert>    
+	
+	<!-- 更新一条记录 -->  
+  <!--   <update id="updateUser" parameterType="model.User">  
+        update Blog set title = #{title},   content = #{content}    where id = #{id}  
+    </update>   -->
+  
+    <!-- 删除一条记录 -->  
+    <delete id="deleteOrders" parameterType="int">  
+        delete from orders where id = #{id}  
+    </delete>  
+    
+    <delete id="updateStat" parameterType="int">  
+        update orders set stat = "已确认" where id = #{id}  
+    </delete>  
+</mapper>
